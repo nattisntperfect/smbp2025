@@ -1,0 +1,74 @@
+<! html>
+<html>
+<head>
+  <title>Calculator</title>
+  <style>
+    /* Add some basic styling to our calculator */
+    body {
+      font-family: Arial, sans-serif;
+    }
+   .calculator {
+      width: 200px;
+      background-color: #f0f0f0;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+   .button {
+      width: 50px;
+      height: 50px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+   .button:hover {
+      background-color: #3e8e41;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="display" value="" readonly>
+    <div class="buttons">
+      <button class="button" onclick="append('7')">7</button>
+      <button class="button" onclick="append('8')">8</button>
+      <button class="button" onclick="append('9')">9</button>
+      <button class="button" onclick="append('+')">+</button>
+      <br>
+      <button class="button" onclick="append('4')">4</button>
+      <button class="button" onclick="append('5')">5</button>
+      <button class="button" onclick="append('6')">6</button>
+      <button class="button" onclick="append('-')">-</button>
+      <br>
+      <button class="button" onclick="append('1')">1</button>
+      <button class="button" onclick="append('2')">2</button>
+      <button class="button" onclick="append('3')">3</button>
+      <button class="button" onclick="append('*')"> *</button>
+      <br>
+      <button class="button" onclick="append('0')">0</button>
+      <button class="button" onclick="append('.')">.</button>
+      <button class="button" onclick="append('=')">=</button>
+      <button class="button" onclick="append('/')">/</button>
+    </div>
+  </div>
+
+  <script>
+    let display = document.getElementById('display');
+    let calculation = '';
+
+    function append(char) {
+      if (char === '=') {
+        calculation = eval(calculation);
+        display.value = calculation;
+        calculation = '';
+      } else {
+        calculation += char;
+        display.value = calculation;
+      }
+    }
+  </script>
+</body>
+</html>
